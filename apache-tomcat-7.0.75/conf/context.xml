@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context path="/anatomy">
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+ 
+
+ <ResourceLink auth="Container"
+	       name="jdbc/anatomy-ds"
+               global="jdbc/anatomy-ds"
+               type="javax.sql.DataSource" />
+
+</Context>
