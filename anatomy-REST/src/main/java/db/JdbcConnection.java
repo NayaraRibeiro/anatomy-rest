@@ -16,6 +16,6 @@ public class JdbcConnection {
         }
         connection.close();
 
-        return "Hello World Nayara!!!!!";
+        return "DB conected!!!!!";
     }
 }
