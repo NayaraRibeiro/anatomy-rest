@@ -1,4 +1,4 @@
-package br.com.appanatomy.tasks.controller;
+package br.com.appanatomy.tasks;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,4 +11,3 @@ public class HelloWorld {
         return "ok";
     }
 }
-

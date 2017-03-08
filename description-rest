@@ -1,0 +1,55 @@
+-= Serviço Rest usado pelo App Anatomy Mobile =-
+
+Request:
+GET http://localhost:8080/anatomy/questions?subtheme="Cabeca"
+
+JSON Response:
+    {
+	"id":"1",
+	"name":"Cabeça e Pescoço",
+	"theme": {
+		"id":"1",
+		"name": "Cabeca",
+		"subtheme": {
+			"questions": [{
+				"id": "1",
+				"title": "Qual e?",
+				"answerCorreta": {
+					"id": 1,
+					"answer": "Maxila"
+				},
+				"answerIncorreta": [{
+					"id": 2,
+					"answer": "Respuesta X"
+				}, {
+					"id": 3,
+					"answer": "Respuesta Y"
+				}, {
+					"id": 4,
+					"answer": "Respuesta Z"
+				}]
+
+			}, {
+				"id": "2",
+				"title": "Qual e a question 2?",
+				"answerCorreta": {
+					"id": 1,
+					"answer": "Maxila"
+				},
+				"answerIncorreta": [{
+					"id": 2,
+					"answer": "Respuesta X"
+				}, {
+					"id": 3,
+					"answer": "Respuesta Y"
+				}, {
+					"id": 4,
+					"answer": "Respuesta Z"
+				}]
+
+			}]
+
+		}
+	}
+}
+

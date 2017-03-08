@@ -1,12 +1,15 @@
-package br.com.appanatomy.tasks.model;
+package br.com.appanatomy.model;
 
 public class Theme {
     private int id;
     private String name;
 
     public Theme(String name){
-        this.id = id;
-        this.name = name;
+       this.name = name;
+    }
+
+    public Theme() {
+
     }
 
     public int getId(){
