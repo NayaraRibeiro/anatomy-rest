@@ -14,12 +14,12 @@
         <c:forEach var="theme" items="${listTheme}" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
-                <td>${theme.id}</td>
-                <td>${theme.name}</td>
+                <td>${theme.themeId}</td>
+                <td>${theme.themeName}</td>
                 <td>
-                    <a href="/editTheme?id=${theme.id}">Edit</a>
+                    <a href="/editTheme?themeId=${theme.themeId}">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="/deleteTheme?id=${theme.id}">Delete</a>
+                    <a href="/deleteTheme?themeId=${theme.themeId}">Delete</a>
                 </td>
 
             </tr>

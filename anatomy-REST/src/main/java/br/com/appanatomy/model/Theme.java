@@ -1,30 +1,30 @@
 package br.com.appanatomy.model;
 
 public class Theme {
-    private int id;
-    private String name;
+    private int themeId;
+    private String themeName;
 
-    public Theme(String name){
-       this.name = name;
+    public Theme(String themeName){
+       this.themeName = themeName;
     }
 
     public Theme() {
 
     }
 
-    public int getId(){
-        return id;
+    public int getThemeId(){
+        return themeId;
     }
 
-    public String getName(){
-        return name;
+    public String getThemeName(){
+        return themeName;
     }
 
-    public void setId(int id){
-        this.id = id;
+    public void setThemeId(int themeId){
+        this.themeId = themeId;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public void setThemeName(String themeName){
+        this.themeName = themeName;
     }
 }

@@ -1,7 +1,7 @@
 -= Serviço Rest usado pelo App Anatomy Mobile =-
 
 Request:
-GET http://localhost:8080/anatomy/questions?subtheme="Cabeca"
+GET http://localhost:8080/anatomy/rest/questions?subtheme="Cabeca"
 
 JSON Response:
     {

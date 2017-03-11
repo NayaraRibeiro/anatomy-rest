@@ -22,7 +22,7 @@
     </build>
     <name> Anatomy REST </name>
     <properties>
-        <context.path>/ws/api/anatomy/v1</context.path>
+        <context.path>/anatomy</context.path>
         <tomcat.version>7.0.75</tomcat.version>
         <spring.version>4.3.6.RELEASE</spring.version>
         <hibernate.version>4.3.10.Final</hibernate.version>
@@ -77,7 +77,26 @@
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.9.0.pr1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.9.0.pr1</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
     </dependencies>
 
 </project>

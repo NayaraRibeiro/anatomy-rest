@@ -10,12 +10,13 @@ public class JdbcConnection {
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/app_anatomy", "root",
                 "solnascente");
         Statement stm = connection.createStatement();
-        ResultSet res = stm.executeQuery("SELECT * FROM app_anatomy.answer");
+        ResultSet res = stm.executeQuery("SELECT * FROM app_anatomy.sub_theme");
         while (res.next()) {
-            System.out.println(res.getString("answer"));
+            System.out.println(res.getString("name"));
         }
+        String subThemeName = res.getString("name");
         connection.close();
 
-        return "DB conected!!!!!";
+        return subThemeName;
     }
 }

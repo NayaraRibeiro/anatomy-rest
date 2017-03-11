@@ -9,10 +9,10 @@
     <h1>New/Edit Theme</h1>
     <form:form action="saveTheme" method="post" modelAttribute="theme">
         <table>
-            <form:hidden path="id"/>
+            <form:hidden path="themeId"/>
             <tr>
                 <td>Name:</td>
-                <td><form:input path="name" /></td>
+                <td><form:input path="themeName" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="Save"></td>

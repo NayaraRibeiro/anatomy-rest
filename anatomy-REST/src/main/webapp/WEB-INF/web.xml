@@ -7,7 +7,7 @@
     <display-name> Anatomy REST </display-name>
 
     <servlet>
-        <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+        <servlet-name>Dispatcher</servlet-name>
         <servlet-class>
             org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
@@ -22,8 +22,8 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>Dispatcher</servlet-name>
+        <url-pattern>/anatomy/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
