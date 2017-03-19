@@ -18,7 +18,6 @@ public class SubTheme {
         this.questions = questions;
     }
 
-
     public int getId() {
         return id;
     }

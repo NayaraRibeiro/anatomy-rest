@@ -1,5 +1,6 @@
 package br.com.appanatomy.dao;
 
+import br.com.appanatomy.model.Answer;
 import br.com.appanatomy.model.Question;
 import br.com.appanatomy.model.SubTheme;
 
@@ -16,7 +17,9 @@ public class ConnectionDao {
     private PreparedStatement statement;
 
     protected SubTheme retrieveSubThemeByName(String name) throws SQLException {
-        return query("SELECT * FROM app_anatomy.sub_theme inner join app_anatomy.question on app_anatomy.question.sub_theme_id = app_anatomy.sub_theme.id  WHERE app_anatomy.sub_theme.name LIKE '"+ name +"'");
+        return query("SELECT * FROM app_anatomy.sub_theme inner join app_anatomy.question" +
+                " on app_anatomy.question.sub_theme_id = app_anatomy.sub_theme.id inner join app_anatomy.answer" +
+                " on app_anatomy.question.id = app_anatomy.answer.question_id WHERE app_anatomy.sub_theme.name LIKE '"+ name +"'");
     }
 
     protected void openDBConnection() throws SQLException, ClassNotFoundException {
@@ -54,7 +57,8 @@ public class ConnectionDao {
 
         List<Question> questions = new ArrayList<Question>();
         do {
-            questions.add(new Question(resultSet.getInt(4), resultSet.getString("title")));
+            questions.add(new Question(resultSet.getInt(4), resultSet.getString("title"),
+                    new Answer(resultSet.getInt(8), resultSet.getString("answer"))));
         } while (resultSet.next());
 
         return questions;

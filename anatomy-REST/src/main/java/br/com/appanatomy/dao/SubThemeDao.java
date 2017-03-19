@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.sql.SQLException;
 
-public class SubThemeDao extends ConnectionDao{
+public class SubThemeDao extends ConnectionDao {
 
     public JSONObject getSubThemeByName(String name) throws SQLException, ClassNotFoundException {
 
@@ -19,10 +19,9 @@ public class SubThemeDao extends ConnectionDao{
     private JSONObject buildSubThemeJSON(SubTheme subTheme) {
 
         JSONObject jsonObject = new JSONObject();
-
-            jsonObject.put("id", subTheme.getId());
-            jsonObject.put("subTheme", subTheme.getName());
-            jsonObject.put("questions", subTheme.getQuestions());
+        jsonObject.put("id", subTheme.getId());
+        jsonObject.put("subTheme", subTheme.getName());
+        jsonObject.put("questions", subTheme.getQuestions());
 
         return jsonObject;
 
