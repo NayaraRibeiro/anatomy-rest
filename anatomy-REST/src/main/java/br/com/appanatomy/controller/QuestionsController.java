@@ -13,7 +13,7 @@ import java.sql.SQLException;
 @RequestMapping("/rest")
 public class QuestionsController {
 
-    @RequestMapping(value = "/questions", method = RequestMethod.GET, produces = ("application/json;charset=UTF-8"))
+    @RequestMapping(value = "/questions", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public String getQuestions (@RequestParam(value="subtheme") String nameSubTheme) throws SQLException, ClassNotFoundException {
         SubThemeDao subThemeDao = new SubThemeDao();
         JSONObject subThemesJson = subThemeDao.getSubThemeByName(nameSubTheme);

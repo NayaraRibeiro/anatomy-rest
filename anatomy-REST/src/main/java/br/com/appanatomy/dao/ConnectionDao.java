@@ -16,7 +16,7 @@ public class ConnectionDao {
     private PreparedStatement statement;
 
     protected SubTheme retrieveSubThemeByName(String name) throws SQLException {
-        return query("SELECT * FROM app_anatomy.sub_theme inner join app_anatomy.question on app_anatomy.question.sub_theme_id = app_anatomy.sub_theme.id  WHERE app_anatomy.sub_theme.name LIKE "+ name);
+        return query("SELECT * FROM app_anatomy.sub_theme inner join app_anatomy.question on app_anatomy.question.sub_theme_id = app_anatomy.sub_theme.id  WHERE app_anatomy.sub_theme.name LIKE '"+ name +"'");
     }
 
     protected void openDBConnection() throws SQLException, ClassNotFoundException {
