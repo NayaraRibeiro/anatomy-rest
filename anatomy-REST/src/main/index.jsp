@@ -1,6 +1,5 @@
-<%@ page import="db.JdbcConnection" %>
 <html>
 <body>
-<h3 class="message"> <%= JdbcConnection.getMessage() %> </h3>
+<h1> Hello </h1>
 </body>
 </html>

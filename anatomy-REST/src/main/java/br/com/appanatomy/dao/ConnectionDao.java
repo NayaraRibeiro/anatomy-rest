@@ -9,50 +9,55 @@ import java.util.List;
 
 public class ConnectionDao {
 
-    private static Connection connection;
+    private Connection connection;
 
-    private static ResultSet resultSet;
+    private ResultSet resultSet;
 
-    private static PreparedStatement statement;
+    private PreparedStatement statement;
 
-    public static void open() throws SQLException, ClassNotFoundException {
+    protected SubTheme retrieveSubThemeByName(String name) throws SQLException {
+        return query("SELECT * FROM app_anatomy.sub_theme inner join app_anatomy.question on app_anatomy.question.sub_theme_id = app_anatomy.sub_theme.id  WHERE app_anatomy.sub_theme.name LIKE "+ name);
+    }
+
+    protected void openDBConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/app_anatomy",
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/app_anatomy?useUnicode=yes&characterEncoding=UTF-8",
                 "root", "solnascente");
     }
 
-    public static void query(String query) throws SQLException {
-        statement = connection.prepareStatement(query);
-        resultSet = statement.executeQuery(query);
-
-    }
-
-    public static ResultSet getResultSet(){
-        return resultSet;
-    }
-
-    public static void close() throws SQLException {
+    protected void closeDBConnection() throws SQLException {
         statement.close();
         connection.close();
     }
 
-    public static SubTheme getSubTheme() throws SQLException {
+    private SubTheme query(String query) {
+
         SubTheme subTheme = new SubTheme();
-        while (getResultSet().next()) {
-            int id = Integer.parseInt(getResultSet().getString("id"));
-            String name = getResultSet().getString("name");
-            int themeId = Integer.parseInt(getResultSet().getString("theme_id"));
-            subTheme = new SubTheme(id, name, themeId);
+
+        try {
+            statement = connection.prepareStatement(query);
+            resultSet = statement.executeQuery(query);
+            resultSet.next();
+            int id = Integer.parseInt(resultSet.getString("id"));
+            String name = resultSet.getString("name");
+            subTheme = new SubTheme(id, name, retrieveQuestions(resultSet));
+
+        } catch (SQLException e) {
+            System.out.println("Consulta Inválida!");
         }
+
         return subTheme;
+
     }
 
-    private static List<Question> retrieveQuestions(ResultSet resultSet) {
+    private List<Question> retrieveQuestions(ResultSet resultSet) throws SQLException {
 
-        List<Question> questions = null;
+        List<Question> questions = new ArrayList<Question>();
+        do {
+            questions.add(new Question(resultSet.getInt(4), resultSet.getString("title")));
+        } while (resultSet.next());
 
         return questions;
     }
-
 
 }
