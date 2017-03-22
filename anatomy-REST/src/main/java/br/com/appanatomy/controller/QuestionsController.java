@@ -15,9 +15,9 @@ import java.sql.SQLException;
 public class QuestionsController {
 
     @RequestMapping(value = "/questions", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    public String getQuestions (@RequestParam(value="subtheme") String nameSubTheme) throws SQLException, ClassNotFoundException {
+    public String getQuestions (@RequestParam(value="subtheme") String subThemeName) throws SQLException, ClassNotFoundException {
         SubThemeService subThemeService = new SubThemeService();
-        SubTheme subTheme = subThemeService.findSubThemeByName(nameSubTheme);
+        SubTheme subTheme = subThemeService.findSubThemeByName(subThemeName);
         return buildSubThemeJSON(subTheme);
     }
 
