@@ -15,7 +15,6 @@ public class AnswerDao extends Dao{
         List<Answer> incorrectAnswers = buildIncorrectRandomAnswersByQuery("SELECT * FROM app_anatomy.answer " +
                 "WHERE app_anatomy.answer.id != " + correctAnswerId + " ORDER BY RAND() LIMIT 3");
         closeDBConnection();
-
         return incorrectAnswers;
     }
 
