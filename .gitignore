@@ -1,4 +1,5 @@
 apache-tomcat-7.0.75/temp/
 apache-tomcat-7.0.75/logs/
+apache-tomcat-7.0.75/webapps/
 anatomy-REST/.idea
 anatomy-REST/target

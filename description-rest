@@ -5,13 +5,8 @@ GET http://localhost:8080/anatomy/rest/questions?subtheme="Cabeca"
 
 JSON Response:
     {
-	"id":"1",
-	"name":"Cabeça e Pescoço",
-	"theme": {
-		"id":"1",
-		"name": "Cabeca",
-		"subtheme": {
-			"questions": [{
+	"subtheme": {
+		"questions": [{
 				"id": "1",
 				"title": "Qual e?",
 				"answerCorreta": {

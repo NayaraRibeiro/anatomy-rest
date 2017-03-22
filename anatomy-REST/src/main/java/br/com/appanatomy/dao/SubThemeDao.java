@@ -21,7 +21,7 @@ public class SubThemeDao extends Dao {
         return subTheme;
     }
 
-    private SubTheme buildSubThemeByQuery(String query) {
+    private SubTheme buildSubThemeByQuery(String query) throws ClassNotFoundException {
 
         SubTheme subTheme = new SubTheme();
         try {
@@ -37,7 +37,7 @@ public class SubThemeDao extends Dao {
         return subTheme;
     }
 
-    private List<Question> retrieveQuestions(ResultSet resultSet) throws SQLException {
+    private List<Question> retrieveQuestions(ResultSet resultSet) throws SQLException, ClassNotFoundException {
 
         List<Question> questions = new ArrayList<Question>();
         do {
@@ -46,7 +46,7 @@ public class SubThemeDao extends Dao {
         return questions;
     }
 
-    private Question retrieveQuestion(ResultSet resultSet) throws SQLException {
+    private Question retrieveQuestion(ResultSet resultSet) throws SQLException, ClassNotFoundException {
         AnswerDao answerDao = new AnswerDao();
         return new Question(resultSet.getInt(4),
                             resultSet.getString("title"),
