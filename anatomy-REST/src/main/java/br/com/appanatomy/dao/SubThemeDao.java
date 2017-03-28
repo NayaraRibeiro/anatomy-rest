@@ -12,7 +12,7 @@ import java.util.List;
 public class SubThemeDao extends Dao {
 
     public SubTheme findSubThemeByName(String name) throws SQLException, ClassNotFoundException {
-        openDBConnection();
+        openDBConnection("app_anatomy", "root", "solnascente");
         SubTheme subTheme = buildSubThemeByQuery("SELECT * FROM app_anatomy.sub_theme inner join app_anatomy.question" +
                 " on app_anatomy.question.sub_theme_id = app_anatomy.sub_theme.id inner join app_anatomy.answer" +
                 " on app_anatomy.question.id = app_anatomy.answer.question_id WHERE app_anatomy.sub_theme.name LIKE '" + name + "'");
